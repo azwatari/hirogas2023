@@ -1,0 +1,41 @@
+#メンテナンスページ
+#RewriteEngine on
+#RewriteCond %{REQUEST_URI} !/maintenance.html$
+#RewriteCond %{REMOTE_ADDR} !^192\.168\.1\.51
+#RewriteRule $ /maintenance.html [R=302,L]
+
+# BEGIN WordPress
+# "BEGIN WordPress" から "END WordPress" までのディレクティブ (行) は
+# 動的に生成され、WordPress フィルターによってのみ修正が可能です。
+# これらのマーカー間にあるディレクティブへのいかなる変更も上書きされてしまいます。
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+<files xmlrpc.php>
+order deny,allow
+deny from all
+</files>
+<files wp-config.php>
+order allow,deny
+deny from all
+</files>
+<Files wp-login.php>
+AuthType Basic
+AuthUserFile /var/www/html/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Please enter your ID and password"
+require valid-user
+</Files>
+<files ~ "^.*\.(&#91;Hh&#93;&#91;Tt&#93;&#91;Aa&#93;)">
+order allow,deny
+deny from all
+satisfy all
+</files>

@@ -1,0 +1,11 @@
+{
+  "name": "azwatari",
+  "host": "azwatari.sakura.ne.jp",
+  "protocol": "sftp",
+  "port": 22,
+  "secure": true,
+  "username": "azwatari",
+  "password": "C.je7+xkSF8B",
+  "remotePath": "/home/azwatari/www/hirogas2023",
+  "uploadOnSave": false
+}

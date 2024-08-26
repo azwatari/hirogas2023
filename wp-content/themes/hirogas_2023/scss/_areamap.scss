@@ -1,0 +1,231 @@
+@use "mixin" as mix;
+
+.content_section_areamap {
+  border: 4px solid mix.$ac_main;
+  border-radius: mix.$radius;
+  overflow: hidden;
+  padding: 0;
+  margin-bottom: mix.$space;
+  background: mix.$lt_color;
+  font-family: "Noto Sans JP", sans-serif;
+}
+.box_map_areamap {
+  padding: mix.$space;
+  background-image: url("#{mix.$imagePath}/areamap.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: bottom 70% left 70%;
+  height: 0;
+  padding-top: 50%;
+  position: relative;
+  h3 {
+    font-family: "Murecho", sans-serif;
+    font-weight: 700;
+    border: none;
+    color: mix.$lt_color;
+    background: mix.$ac_main;
+    font-size: 0.9em;
+    padding: 0.5em;
+    line-height: 1;
+    width: max-content;
+    border-radius: mix.$radius * 0.5;
+    border: 1px solid #ddf3fc;
+    position: absolute;
+    top: 0.75em;
+    left: 0.75em;
+  }
+  .link_map_areamap {
+    font-family: "Murecho", sans-serif;
+    display: block;
+    position: absolute;
+    background: mix.$ac_other;
+    color: mix.$ac_main;
+    padding: 0.12em 0.9em 0.25em 0.9em;
+    border-radius: mix.$radius * 0.5;
+    border: 2px solid mix.$ac_other;
+    font-size: 0.9em;
+    transition: 0.3s;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      border-color: mix.$ac_main;
+    }
+    &_area_north {
+      top: 10%;
+      right: 25%;
+    }
+    &_area_east {
+      right: 25%;
+      top: 50%;
+    }
+    &_area_south {
+      right: 45%;
+      top: 65%;
+    }
+    &_area_west {
+      left: 10%;
+      top: 57%;
+    }
+    &_area_hiroshima {
+      left: 25%;
+      top: 37%;
+    }
+    &_area_others {
+      right: mix.$space * 0.5;
+      bottom: mix.$space * 0.5;
+    }
+  }
+}
+.box_list_areamap {
+  display: none;
+}
+
+@include mix.minpc {
+  .box_map_areamap {
+    font-size: 1.2em;
+    h3 {
+      border-width: 2px;
+    }
+    .link_map_areamap {
+      &_area_north {
+        top: 15%;
+        right: 30%;
+      }
+      &_area_east {
+        right: 30%;
+        top: 55%;
+      }
+      &_area_south {
+        right: 50%;
+        top: 70%;
+      }
+      &_area_west {
+        left: 10%;
+        top: 60%;
+      }
+      &_area_hiroshima {
+        left: 25%;
+        top: 45%;
+      }
+      &_area_others {
+        right: 0.75em;
+        bottom: 0.75em;
+      }
+    }
+  }
+}
+
+@include mix.pc {
+  .box_map_areamap {
+    background-position: bottom 70% left 70%;
+    font-size: 1.3em;
+    .link_map_areamap {
+      &_area_north {
+        top: 15%;
+        right: 30%;
+      }
+      &_area_east {
+        right: 30%;
+        top: 55%;
+      }
+      &_area_south {
+        right: 50%;
+        top: 70%;
+      }
+      &_area_west {
+        left: 12%;
+        top: 65%;
+      }
+      &_area_hiroshima {
+        left: 27%;
+        top: 47%;
+      }
+      &_area_others {
+        right: 1em;
+        bottom: 1em;
+      }
+    }
+  }
+  .box_list_areamap {
+    display: block;
+    padding: mix.$space;
+    font-size: 1.1em;
+    .list_area_areamap {
+      margin-bottom: mix.$space * 0.35;
+      dt {
+        border-bottom: 2px solid mix.$dk_txt;
+        font-weight: 700;
+        margin-bottom: mix.$space * 0.25;
+        padding-bottom: mix.$space * 0.25;
+      }
+      dd {
+        display: inline-block;
+        font-weight: 400;
+        margin-right: mix.$space * 1.1;
+        font-size: 0.9em;
+        margin-left: 0.15em;
+        a {
+          padding: 0.1em 0.25em;
+          display: inline-block;
+        }
+        &::before {
+          content: "\f04b";
+          font-family: Fontawesome;
+          color: mix.$ac_main;
+          display: inline-block;
+          font-size: 0.5em;
+          margin-right: 0.35em;
+          position: relative;
+          top: -0.25em;
+        }
+      }
+    }
+  }
+}
+
+@include mix.widepc {
+  .content_section_areamap {
+    display: flex;
+    font-size: 0.9em;
+  }
+  .box_map_areamap {
+    padding-top: mix.$space;
+    height: auto;
+    width: 55%;
+    flex-shrink: 0;
+    background-size: cover;
+    background-position: bottom 50% left 70%;
+    aspect-ratio: initial;
+    .link_map_areamap {
+      &_area_north {
+        top: 15%;
+        right: 30%;
+      }
+      &_area_east {
+        right: 25%;
+        top: 45%;
+      }
+      &_area_south {
+        right: 50%;
+        top: 55%;
+      }
+      &_area_west {
+        left: 10%;
+        top: 52%;
+      }
+      &_area_hiroshima {
+        left: 25%;
+        top: 40%;
+      }
+      &_area_others {
+        right: 1em;
+        bottom: 1em;
+      }
+    }
+  }
+}
+@include mix.landscape {
+  .box_map_areamap {
+    padding-top: 40%;
+  }
+}

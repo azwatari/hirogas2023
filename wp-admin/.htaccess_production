@@ -1,0 +1,11 @@
+AuthType Basic
+AuthUserFile /var/www/html/wp-admin/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Please enter your ID and password"
+require valid-user
+<FilesMatch "(admin-ajax.php)$">
+    Satisfy Any
+    Order allow,deny
+    Allow from all
+    Deny from none
+</FilesMatch>

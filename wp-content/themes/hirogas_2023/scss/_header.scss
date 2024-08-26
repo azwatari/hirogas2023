@@ -1,0 +1,65 @@
+@use "mixin" as mix;
+
+.header_global {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  height: 3.5em;
+  background: linear-gradient(180deg, rgba(0, 165, 64, 1) 6%, rgba(255, 255, 255, 1) 6%, rgba(237, 237, 237, 1) 92%, rgba(255, 255, 255, 1) 92%, rgba(255, 255, 255, 1) 94%, rgba(179, 179, 179, 1) 94%, rgba(179, 179, 179, 1) 96%, rgba(209, 209, 209, 1) 96%, rgba(221, 221, 221, 1) 98%, rgba(209, 209, 209, 1) 98%, rgba(221, 221, 221, 1) 100%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-top: 3px;
+  .title_header_gas {
+    display: block;
+    text-indent: -9999px;
+    background: url("#{mix.$imagePath}/logo.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left center;
+    width: 7em;
+    height: 3em;
+  }
+  .list_header_gas {
+    display: none;
+  }
+}
+
+@include mix.minpc {
+  .header_global {
+    .nav_header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 3.5em;
+    }
+    .list_header_gas {
+      display: flex;
+      align-items: center;
+      gap: 1.25em;
+      font-size: 0.75em;
+      li {
+        &::before {
+          content: "\f101";
+          font-family: Fontawesome;
+          font-size: 0.8em;
+          display: inline-block;
+          transform: translateY(-0.06em);
+          margin-right: 0.25em;
+        }
+      }
+      a {
+        color: mix.$dk_txt;
+      }
+    }
+  }
+}
+@include mix.oldedge {
+  .list_header_gas {
+    li {
+      margin-right: 1.25em;
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}

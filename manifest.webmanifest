@@ -1,0 +1,21 @@
+{
+  "name": "広ガスクーポン加盟店サイト",
+  "short_name": "広ガスクーポン加盟店",
+  "start_url": "/index.php",
+  "display": "standalone",
+  "background_color": "#00a540",
+  "theme_color": "#00a540",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

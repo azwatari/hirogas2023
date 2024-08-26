@@ -1,0 +1,74 @@
+//color
+$ac_main: #00a540;
+$ac_sub: #a9ce45;
+$ac_gourmet: #a9ce45;
+$ac_shopping: #e85f9d;
+$ac_service: #00b6ee;
+$ac_other: #fff000;
+$ac_other_dark: #ffcc00;
+
+$dk_txt: darken(#646464, 4%);
+$lt_bg: #fffbd0;
+$lt_color: #fff;
+$dk_color: darken(#646464, 15%);
+$line_color: rgb(214, 211, 174);
+
+$space: 2rem;
+$space_bottom_mid: $space * 3;
+$space_bottom_large: $space * 4;
+
+$radius: $space * 0.5;
+
+//----------------image-path-----------------------
+//画像パス変数
+$imagePath: "/wp-content/themes/hirogas_2023/images";
+
+@function get-path-to-assets($imagePath) {
+  @return $imagePath;
+}
+
+//-------------ios safari 左右余白-----------
+@mixin safearea($safearea_left: $space, $safearea_right: $space) {
+  padding-left: env(safe-area-inset-left, $safearea_left);
+  padding-right: env(safe-area-inset-right, $safearea_right);
+}
+@mixin safearea_margin($safearea_left_margin: $space, $safearea_right_margin: $space) {
+  margin-left: env(safe-area-inset-left, $safearea_left_margin);
+  margin-right: env(safe-area-inset-right, $safearea_right_margin);
+}
+
+//狭いPC用表示
+$minpc: 640px;
+@mixin minpc {
+  @media screen and (min-width: $minpc) {
+    @content;
+  }
+}
+//基本PC用表示
+$pc: 768px;
+@mixin pc {
+  @media screen and (min-width: $pc) {
+    @content;
+  }
+}
+//幅広PC用表示
+$widepc: 960px;
+@mixin widepc {
+  @media screen and (min-width: $widepc) {
+    @content;
+  }
+}
+
+//ビューポート高さ480px以下
+$landscape: 480px;
+@mixin landscape {
+  @media screen and (max-height: $landscape) {
+    @content;
+  }
+}
+//old edge
+@mixin oldedge {
+  @supports (ime-mode: auto) and (zoom: 1) {
+    @content;
+  }
+}

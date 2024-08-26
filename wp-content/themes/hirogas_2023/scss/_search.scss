@@ -1,0 +1,152 @@
+@use "mixin" as mix;
+
+.section_search {
+  margin-bottom: mix.$space * 3;
+  .header_section_searchshop,
+  .header_section_searchnews {
+    text-align: left;
+    margin-bottom: mix.$space * 0.5;
+  }
+  .content_section_search {
+    padding: mix.$space * 1.25;
+    color: mix.$ac_main;
+    border: 1px solid mix.$ac_main;
+    label {
+      display: block;
+      margin-bottom: mix.$space * 0.75;
+      position: relative;
+      div {
+        width: 100%;
+        &::after {
+          content: "\f0d7";
+          font-family: Fontawesome;
+          display: block;
+          position: absolute;
+          font-size: 1.1em;
+          line-height: 1;
+          right: 1em;
+          bottom: 30%;
+          transform: translateY(50%);
+        }
+      }
+      &:last-of-type {
+        margin-bottom: mix.$space * 1.5;
+      }
+
+      [type="search"] {
+        position: relative;
+        display: block;
+        width: 100%;
+        + span {
+          position: absolute;
+          background: mix.$lt_color;
+          display: block;
+          width: 2em;
+          height: 2em;
+          top: 50%;
+          right: 0.35em;
+          transform: translateY(-50%);
+          background-image: url("#{mix.$imagePath}/xmark-solid.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 60%;
+          pointer-events: none;
+          opacity: 0;
+        }
+        &:not(:placeholder-shown) {
+          &:focus,
+          &:hover {
+            + span {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include mix.pc {
+  .section_search {
+    .content_section_search {
+      label {
+        display: flex;
+        align-items: center;
+        span {
+          width: 10em;
+        }
+        div {
+          &::after {
+            bottom: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+@include mix.widepc {
+  .section_search {
+    .content_section_search {
+      padding: mix.$space * 1.5 mix.$space * 1.25;
+      form {
+        display: grid;
+        grid-template-columns: calc(100% - 10em - mix.$space) 10em;
+        grid-template-rows: repeat(3 1fr);
+        gap: 0 mix.$space;
+      }
+      label {
+        grid-column: 1/2;
+        display: inline-flex;
+        align-items: center;
+        span {
+          display: block;
+          width: 8em;
+          flex-shrink: 0;
+        }
+        select {
+          display: block;
+          width: 100%;
+          padding-left: 0.5em;
+        }
+        input[type="search"] {
+          display: block;
+          padding-left: 0.5em;
+          width: 100%;
+        }
+        div {
+          &::after {
+            bottom: 50%;
+            transform: translateY(50%);
+          }
+        }
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+      input[type="submit"] {
+        grid-template-columns: 2/3;
+        grid-template-rows: 3/4;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@include mix.landscape {
+  .section_search {
+    .content_section_search {
+      label {
+        display: flex;
+        align-items: center;
+        span {
+          width: 10em;
+        }
+        div {
+          &::after {
+            bottom: 50%;
+          }
+        }
+      }
+    }
+  }
+}
